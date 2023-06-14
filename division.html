@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Division Calculator</h1>
+    <label for="total-marks">Total Marks:</label>
+    <input type="number" id="total-marks" placeholder="Enter total marks" />
+
+    <label for="obtained-marks">Obtained Marks:</label>
+    <input
+      type="number"
+      id="obtained-marks"
+      placeholder="Enter obtained marks"
+    />
+
+    <button onclick="calculateDivision()">Calculate Division</button>
+
+    <p id="division-result"></p>
+  </body>
+  <script>
+    // Function to calculate the division based on obtained marks
+    function calculateDivision() {
+      var totalMarks = parseInt(document.getElementById("total-marks").value);
+      var obtainedMarks = parseInt(
+        document.getElementById("obtained-marks").value
+      );
+      var divisionResult = document.getElementById("division-result");
+
+      if (isNaN(totalMarks) || isNaN(obtainedMarks)) {
+        divisionResult.textContent = "Please enter valid marks";
+        return;
+      }
+
+      var percentage = (obtainedMarks / totalMarks) * 100;
+
+      if (percentage >= 90) {
+        divisionResult.textContent = "Division: Distinction";
+      } else if (percentage >= 75) {
+        divisionResult.textContent = "Division: First Division";
+      } else if (percentage >= 60) {
+        divisionResult.textContent = "Division: Second Division";
+      } else if (percentage >= 40) {
+        divisionResult.textContent = "Division: Third Division";
+      } else {
+        divisionResult.textContent = "Division: Fail";
+      }
+    }
+  </script>
+</html>
